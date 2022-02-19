@@ -4,12 +4,12 @@ import PostIdPage from "../pages/PostIdPage";
 import Login from "../pages/Login";
 
 
-export const privateRoutes = [
-    {path: '/about', component: About, exact: true},
-    {path: '/posts', component: Posts, exact: true},
-    {path: '/posts/:id', component: PostIdPage, exact: true},
+export const Routes = [
+    {path: '/homepage', component: Homepage, exact: true},
+    {path: '/clients', component: Clients, exact: true},
+    {path: '/clients/:id', component: Client, exact: true },
+    {path: '/clients/:id/history', component: ClientHistory, exact: true },
+    {path: '/clients/:id/customize', component: ClientCustomize, exact: true },
+    {path: '/database', component: DataBase, exact: true},
 ]
 
-export const publicRoutes = [
-    {path: '/login', component: Login, exact: true},
-]
