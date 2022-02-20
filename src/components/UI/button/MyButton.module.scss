@@ -1,10 +1,12 @@
 @import '../../../styles/variables.scss';
 
 .myBtn {
-    padding: 5px 15px;
+    padding: 11px 21px;
     color: white;
     font-size: 18px;
     background: $secondary-color;
     border: none;
     cursor: pointer;
+    text-decoration: none;
+    border-radius: 10px;
 }

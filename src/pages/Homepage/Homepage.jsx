@@ -7,12 +7,19 @@ import { Link } from "react-router-dom";
 
 export default function Homepage() {
   return (
-    <nav>
-      <MyButton>
-         <Link to="clients" style={styles.link}>Клиенты</Link>
+    <nav className={styles.nav}>
+      <div className={styles.wrapper}>
+         <MyButton>
+         <Link to="clients" className={styles.link}>Клиенты</Link>
       </MyButton>
+
+      <hr className={styles.hr}/>
      
-      <Link to="database">Тренировки</Link>
+      <MyButton>
+        <Link to="database" className={styles.link}>Тренировки</Link>
+      </MyButton>
+      </div>
+     
     </nav>
   )
 }
