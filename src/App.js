@@ -17,7 +17,7 @@ export default function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path='home' element={<Homepage />}/>
+          <Route path='/' element={<Homepage />}/>
           <Route path="clients" element={<Clients />}>
             <Route path=":id" element={<Client />}>
               <Route path=":history" element={<ClientHistory />} />
