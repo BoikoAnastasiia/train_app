@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './ClientCustomuze.module.scss';
+import styles from './ClientCustomize.module.scss';
  
 
 export default function ClientHistory() {
