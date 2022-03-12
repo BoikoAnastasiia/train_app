@@ -4,7 +4,14 @@ import styles from './Navbar.module.scss'
 
 const Navbar = () => {
     return (
-      <div></div>
+      <ul className={styles.links}>
+        <li>
+          <Link to="/clients">Клиенты</Link>
+        </li>
+        <li>
+          <Link to="/database">Тренировки</Link>
+        </li>
+      </ul>
     );
 };
 
