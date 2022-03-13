@@ -4,3 +4,11 @@
   display: flex;
   font-size: 14px;
 }
+
+.navLink {
+  color: red;
+
+  & .unselected {
+    color: blue;
+  }
+}

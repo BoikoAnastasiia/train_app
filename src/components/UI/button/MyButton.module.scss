@@ -9,4 +9,10 @@
     cursor: pointer;
     text-decoration: none;
     border-radius: 10px;
+    transition: $time;
+
+    &:hover {
+      background: $secondary-color-tint;
+      box-shadow: $button-shadow;
+    }
 }
