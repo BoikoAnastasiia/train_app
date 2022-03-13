@@ -3,12 +3,19 @@
 .links {
   display: flex;
   font-size: 14px;
+  width: 80%;
 }
 
-.navLink {
+.navLinkActive {
   color: red;
+}
 
-  & .unselected {
+.unselected {
     color: blue;
   }
-}
+
+  .nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }

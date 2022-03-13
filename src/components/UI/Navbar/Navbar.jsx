@@ -4,12 +4,13 @@ import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
   return (
+    <nav className={styles.nav}>
     <ul className={styles.links}>
       <li>
         <NavLink
           to="/clients"
-          className={(isActive) =>
-            styles.navLink + (!isActive ? ` ${styles.unselected}`  : "")
+          className={(navData) =>
+           navData.isActive ? styles.navLinkActive  : styles.unselected
           }
         >
           Клиенты
@@ -18,14 +19,15 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/database"
-          className={(isActive) =>
-            styles.navLink + (!isActive ? ` ${styles.unselected}` : "")
+          className={(navData) =>
+           navData.isActive ? styles.navLinkActive  : styles.unselected
           }
         >
           Тренировки
         </NavLink>
       </li>
-    </ul>
+      </ul>
+      </nav>
   );
 };
 
