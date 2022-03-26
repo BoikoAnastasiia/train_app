@@ -3,19 +3,34 @@
 .links {
   display: flex;
   font-size: 14px;
-  width: 80%;
+  width: 90%;
+  padding: 6% 2% 4% 2%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 17px;
+  border-bottom: 1px solid $text-color;
 }
 
-.navLinkActive {
-  color: red;
+.active {
+  color: $secondary-color;
+  font-weight: 400;
 }
 
 .unselected {
-    color: blue;
+    color: $text-color;
+    font-weight: 300;
   }
 
   .nav {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  .divider {
+    height: 110%;
+    &::before {
+      content: "";
+      border-left: 1px solid $text-color;
+    }
   }

@@ -10,17 +10,19 @@ const Navbar = () => {
         <NavLink
           to="/clients"
           className={(navData) =>
-           navData.isActive ? styles.navLinkActive  : styles.unselected
+           navData.isActive ? styles.active  : styles.unselected
           }
         >
           Клиенты
         </NavLink>
-      </li>
+        </li>
+        <li className={styles.divider}>
+        </li>
       <li>
         <NavLink
           to="/database"
           className={(navData) =>
-           navData.isActive ? styles.navLinkActive  : styles.unselected
+           navData.isActive ? styles.active  : styles.unselected
           }
         >
           Тренировки
