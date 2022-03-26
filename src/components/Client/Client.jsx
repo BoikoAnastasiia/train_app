@@ -1,13 +1,13 @@
 import React from 'react'
 import styles from './Clients.module.scss';
-import Navbar from '../../components/UI/Navbar'
+import Navbar from '../UI/Navbar'
+import FilterInput from '../UI/FilterInput'
  
 
 export default function Client() {
   return (
     <>
       <Navbar/>
-      <div>Client</div></>
-    
+    </>
   )
 }

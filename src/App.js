@@ -7,9 +7,9 @@ import {
 } from "react-router-dom";
 import Homepage from './pages/Homepage'
 import Clients from './pages/Clients'
-import Client from './pages/Client'
+import Client from './components/Client'
 import ClientHistory from './pages/ClientHistory'
-import ClientCustomize from './pages/ClientCustomize'
+import ClientCustomize from './components/ClientCustomize'
 import DataBase from './pages/DataBase'
 
 
