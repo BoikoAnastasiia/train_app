@@ -1,1 +1,14 @@
-@import  '../../../styles/App.scss'
+@import '../../../styles/App.scss';
+
+.input {
+  border-radius: 12px;
+  padding: 10px;
+  background-color: $input-color;
+  color: $text-color;
+  border: 1px solid transparent;
+
+  &:focus {
+    background-color: $input-accent-color;
+    outline: 2px solid $secondary-color;
+  }
+}
