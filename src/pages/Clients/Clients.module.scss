@@ -4,3 +4,19 @@
   width: 90%;
   margin: 37px auto;
 }
+
+.buttons_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter_button {
+  padding: 3px 15px;
+  background-color: transparent;
+  font-size: 31px;
+  border: none;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}

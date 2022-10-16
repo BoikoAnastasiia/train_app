@@ -6,6 +6,7 @@
   background-color: $input-color;
   color: $text-color;
   border: 1px solid transparent;
+  flex-grow: 1;
 
   &:focus {
     background-color: $input-accent-color;
