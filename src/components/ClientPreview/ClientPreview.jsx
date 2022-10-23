@@ -1,8 +1,8 @@
 import styles from './ClientPreview.module.scss';
 
-const ClientPreview = ({ avatar, title, trainText, date }) => {
+const ClientPreview = ({ avatar, title, trainText, date, id }) => {
   return (
-    <li className={styles.client_preview_wrapper}>
+    <li key={id} className={styles.client_preview_wrapper}>
       <img className={styles.avatar} src={avatar} alt={`${title} avatar`} />
       <div className={styles.client_preview_text_wrapper}>
         <div className={styles.title_wrapper}>

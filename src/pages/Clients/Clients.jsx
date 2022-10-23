@@ -6,24 +6,32 @@ import ClientPreview from '../../components/ClientPreview';
 import img from '../../images/avatars/cat_8.svg';
 import img2 from '../../images/avatars/cat_1.svg';
 import img3 from '../../images/avatars/cat_4.svg';
-import img4 from '../../images/avatars/cat_9.svg';
-import img5 from '../../images/avatars/cat_14.svg';
 
 export default function Clients() {
   const trains = [
     {
       avatar: img,
       title: 'Руслан',
+      id: Math.random() + Date.now(),
       trainText:
         'Болгарские выпады 10 1 6*2 10 4 тяга в кроссовере бирюзовая 45 12 4 Ягодичный мостик на одной ноге 12 4 сгибание ног в тренажере и еще че тоjhvmjvvjbkbcksahbwflekelcvfewve',
       date: new Date('October 13, 2023 11:13').toDateString()
     },
     {
       avatar: img2,
-      title: 'Руслан',
+      title: 'Катя',
+      id: Math.random() + Date.now(),
       trainText:
-        'Болгарские выпады 10 1 6*2 10 4 тяга в кроссовере бирюзовая 45 12 4 Ягодичный мостик на одной ноге 12 4 сгибание ног в тренажере и еще че тоjhvmjvvjbkbcksahbwflekelcvfewve',
-      date: new Date('October 13, 2023 11:13').toDateString()
+        'тяга в кроссовере бирюзовая 45 12 4 Ягодичный мостик на одной ноге 12 4 сгибание ног в тренажёре 20 12 4 разведение ног в тренажёре 45 15 4 наружная ротация лёжа на боку 16 4 тяга верхнего блока широким хватом 15 12 1 25 12 4 у-подьем рук 10 4 планка упор лёжа динамическая',
+      date: new Date('October 14, 2023 11:13').toDateString()
+    },
+    {
+      avatar: img3,
+      title: 'Влад',
+      id: Math.random() + Date.now(),
+      trainText:
+        'Ягодичный мостик на одной ноге 12 4 сгибание ног в тренажёре 20 12 4 разведение ног в тренажёре 45 15 4 наружная ротация лёжа на боку 16 4 тяга верхнего блока широким хватом 15 12 1 25 12 4 у-подьем рук 10 4 планка упор лёжа динамическая тяга в кроссовере бирюзовая 45 12 4 ',
+      date: new Date('September 14, 2023 11:13').toDateString()
     }
   ];
   return (
@@ -40,12 +48,15 @@ export default function Clients() {
           </button>
         </div>
         <ul className={styles.trains_wrapper}>
-          <ClientPreview
-            avatar={img}
-            title="Руслан"
-            trainText=""
-            date={'acasca'}
-          />
+          {trains.map(train => (
+            <ClientPreview
+              id={train.id}
+              avatar={train.avatar}
+              title={train.title}
+              trainText={train.trainText}
+              date={train.date}
+            />
+          ))}
         </ul>
       </div>
     </>
