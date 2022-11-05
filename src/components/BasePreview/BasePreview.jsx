@@ -2,7 +2,7 @@ import styles from './BasePreview.module.scss';
 
 const BasePreview = ({ icon, title, id }) => {
   return (
-    <li key={id} className={styles.workout_preview_wrapper}>
+    <li key={id} className={styles.workout_preview_wrapper} id={id}>
       <p className={styles.title}>{title}</p>
       <img className={styles.icon} src={icon} alt={`${title} icon`} />
     </li>

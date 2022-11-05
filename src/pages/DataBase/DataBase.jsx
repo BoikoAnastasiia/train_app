@@ -1,10 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
+
 import styles from './DataBase.module.scss';
 import Navbar from '../../components/UI/Navbar';
 import FilterInput from '../../components/UI/FilterInput';
 import Select from '../../components/UI/Select/Select';
 import base from './base.json';
-
 import BasePreview from '../../components/BasePreview/BasePreview';
 import грудь from './Icons/грудь.svg';
 import ноги from './Icons/ноги.svg';
@@ -15,7 +15,6 @@ import ягодицы from './Icons/ягодицы.svg';
 
 const DataBase = () => {
   const renderIcon = musclesArray => {
-    const images = ['грудь', 'ноги', 'пресс', 'рука', 'спина', 'ягодицы'];
     if (
       musclesArray.includes('плечи') ||
       musclesArray.includes('трапеция') ||
@@ -44,6 +43,7 @@ const DataBase = () => {
       return ноги;
     }
   };
+  const [trains, setTrains] = useState(base);
 
   return (
     <>
@@ -68,13 +68,20 @@ const DataBase = () => {
           />
         </div>
         <ul className={styles.workouts_wrapper}>
-          {base.map(train => (
-            <BasePreview
-              id={train.name + Math.random()}
-              icon={renderIcon(train.muscles)}
-              title={train.name}
-            />
-          ))}
+          {trains &&
+            trains
+              .sort((a, b) => {
+                if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+                if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+                return 0;
+              })
+              .map(train => (
+                <BasePreview
+                  id={train.name + Math.random() + Date.now()}
+                  icon={renderIcon(train.muscles)}
+                  title={train.name}
+                />
+              ))}
         </ul>
       </div>
     </>
