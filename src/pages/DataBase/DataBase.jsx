@@ -14,14 +14,36 @@ import спина from './Icons/спина.svg';
 import ягодицы from './Icons/ягодицы.svg';
 
 const DataBase = () => {
-  console.log(base);
-  const generateId = () => {
-    const dateString = Date().now.toString();
-    const random = Math.random();
-    return dateString + random;
-  };
+  const renderIcon = musclesArray => {
+    const images = ['грудь', 'ноги', 'пресс', 'рука', 'спина', 'ягодицы'];
+    if (
+      musclesArray.includes('плечи') ||
+      musclesArray.includes('трапеция') ||
+      musclesArray.includes('грудь')
+    ) {
+      return грудь;
+    }
 
-  const renderIcon = () => {};
+    if (musclesArray.includes('трицепс') || musclesArray.includes('бицепс')) {
+      return рука;
+    }
+
+    if (musclesArray.includes('пресс')) {
+      return пресс;
+    }
+
+    if (musclesArray.includes('спина')) {
+      return спина;
+    }
+
+    if (musclesArray.includes('ягодицы')) {
+      return ягодицы;
+    }
+
+    if (musclesArray.includes('ноги')) {
+      return ноги;
+    }
+  };
 
   return (
     <>
@@ -47,7 +69,11 @@ const DataBase = () => {
         </div>
         <ul className={styles.workouts_wrapper}>
           {base.map(train => (
-            <BasePreview id={generateId} icon={ягодицы} title={train.name} />
+            <BasePreview
+              id={train.name + Math.random()}
+              icon={renderIcon(train.muscles)}
+              title={train.name}
+            />
           ))}
         </ul>
       </div>
