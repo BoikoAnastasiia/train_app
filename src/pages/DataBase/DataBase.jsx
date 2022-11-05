@@ -3,16 +3,26 @@ import styles from './DataBase.module.scss';
 import Navbar from '../../components/UI/Navbar';
 import FilterInput from '../../components/UI/FilterInput';
 import Select from '../../components/UI/Select/Select';
-import BasePreview from '../../components/BasePreview/BasePreview';
 import base from './base.json';
 
+import BasePreview from '../../components/BasePreview/BasePreview';
+import грудь from './Icons/грудь.svg';
+import ноги from './Icons/ноги.svg';
+import пресс from './Icons/пресс.svg';
+import рука from './Icons/рука.svg';
+import спина from './Icons/спина.svg';
+import ягодицы from './Icons/ягодицы.svg';
+
 const DataBase = () => {
-  const baseArray = JSON.stringify(base);
+  console.log(base);
   const generateId = () => {
     const dateString = Date().now.toString();
     const random = Math.random();
     return dateString + random;
   };
+
+  const renderIcon = () => {};
+
   return (
     <>
       <Navbar />
@@ -36,12 +46,8 @@ const DataBase = () => {
           />
         </div>
         <ul className={styles.workouts_wrapper}>
-          {baseArray.map(train => (
-            <BasePreview
-              id={generateId}
-              icon={train.avatar}
-              title={train.title}
-            />
+          {base.map(train => (
+            <BasePreview id={generateId} icon={ягодицы} title={train.name} />
           ))}
         </ul>
       </div>

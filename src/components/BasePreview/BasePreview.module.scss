@@ -1,11 +1,12 @@
 @import '../../styles/App.scss';
 
-.client_preview_wrapper {
+.workout_preview_wrapper {
   display: flex;
   padding-bottom: 17px;
   justify-content: space-between;
   margin-bottom: 15px;
   border-bottom: 1px solid $tint-color;
+  align-items: center;
 
   &:last-child {
     border-bottom: none;
@@ -17,6 +18,9 @@
 }
 
 .title {
-  color: $secondary-color;
+  color: $text-color;
   vertical-align: middle;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
 }
