@@ -1,0 +1,14 @@
+@import '../../../styles/App.scss';
+
+.select {
+  border-radius: 12px;
+  color: white;
+  background-color: $primary-bright-color;
+  border: none;
+  padding: 3px 9px;
+  text-transform: capitalize;
+}
+
+.option {
+  text-transform: capitalize;
+}
