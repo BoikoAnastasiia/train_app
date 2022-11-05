@@ -1,1 +1,14 @@
-@import '../../styles/App.scss'
+@import '../../styles/App.scss';
+
+.base_wrapper {
+  width: 90%;
+  margin: 37px auto;
+  & input[type='text'] {
+    margin-right: 14px;
+  }
+}
+
+.buttons_wrapper {
+  display: flex;
+  justify-content: space-between;
+}

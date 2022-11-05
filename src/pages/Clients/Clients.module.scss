@@ -3,6 +3,10 @@
 .clients_wrapper {
   width: 90%;
   margin: 37px auto;
+
+  & input[type='text'] {
+    margin-right: 14px;
+  }
 }
 
 .buttons_wrapper {

@@ -39,7 +39,7 @@ export default function Clients() {
       <Navbar />
       <div className={styles.clients_wrapper}>
         <div className={styles.buttons_wrapper}>
-          <FilterInput />
+          <FilterInput placeholder="Введите имя клиента" />
           <button className={styles.filter_button} type="button">
             &#8593;
           </button>
