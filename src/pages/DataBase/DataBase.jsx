@@ -45,6 +45,8 @@ const DataBase = () => {
   };
   const [trains, setTrains] = useState(base);
 
+  const filterTrains = train => {};
+
   return (
     <>
       <Navbar />

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import styles from './Clients.module.scss';
 import Navbar from '../../components/UI/Navbar';
 import FilterInput from '../../components/UI/FilterInput';
@@ -8,6 +8,9 @@ import img2 from '../../images/avatars/cat_1.svg';
 import img3 from '../../images/avatars/cat_4.svg';
 
 export default function Clients() {
+  const handleQuery = e => setQuery(e.target.value);
+  const handleBlur = e => setQuery('');
+  const [query, setQuery] = useState('');
   const trains = [
     {
       avatar: img,
@@ -39,7 +42,12 @@ export default function Clients() {
       <Navbar />
       <div className={styles.clients_wrapper}>
         <div className={styles.buttons_wrapper}>
-          <FilterInput placeholder="Введите имя клиента" />
+          <FilterInput
+            value={query}
+            placeholder="Введите имя клиента"
+            handleChange={handleQuery}
+            onBlur={handleBlur}
+          />
           <button className={styles.filter_button} type="button">
             &#8593;
           </button>
@@ -48,15 +56,21 @@ export default function Clients() {
           </button>
         </div>
         <ul className={styles.trains_wrapper}>
-          {trains.map(train => (
-            <ClientPreview
-              id={train.id}
-              avatar={train.avatar}
-              title={train.title}
-              trainText={train.trainText}
-              date={train.date}
-            />
-          ))}
+          {trains
+            // .filter(el => {
+            //   console.log(el.title);
+            //   console.log(query);
+            //   el.title.includes(query);
+            // })
+            .map(train => (
+              <ClientPreview
+                id={train.id}
+                avatar={train.avatar}
+                title={train.title}
+                trainText={train.trainText}
+                date={train.date}
+              />
+            ))}
         </ul>
       </div>
     </>
