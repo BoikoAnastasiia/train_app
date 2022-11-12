@@ -7,12 +7,14 @@ import Add from '../../components/Add';
 import img from '../../images/avatars/cat_8.svg';
 import img2 from '../../images/avatars/cat_1.svg';
 import img3 from '../../images/avatars/cat_4.svg';
+import MyModal from '../../components/UI/MyModal/MyModal';
 
 export default function Clients() {
   const handleQuery = e => setQuery(e.target.value);
+  const [modal, setModal] = useState(false);
   const handleBlur = e => setQuery('');
   const [query, setQuery] = useState('');
-  const addHandler = () => console.log('clicked add');
+  const addHandler = () => setModal(true);
   const trains = [
     {
       avatar: img,
@@ -76,6 +78,11 @@ export default function Clients() {
               ))}
         </ul>
       </div>
+      <MyModal
+        visible={modal}
+        setVisible={setModal}
+        title="Добавить подопечного"
+      ></MyModal>
       <Add onClick={addHandler} />
     </>
   );
