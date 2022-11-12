@@ -3,6 +3,7 @@ import styles from './Clients.module.scss';
 import Navbar from '../../components/UI/Navbar';
 import FilterInput from '../../components/UI/FilterInput';
 import ClientPreview from '../../components/ClientPreview';
+import Add from '../../components/Add';
 import img from '../../images/avatars/cat_8.svg';
 import img2 from '../../images/avatars/cat_1.svg';
 import img3 from '../../images/avatars/cat_4.svg';
@@ -11,6 +12,7 @@ export default function Clients() {
   const handleQuery = e => setQuery(e.target.value);
   const handleBlur = e => setQuery('');
   const [query, setQuery] = useState('');
+  const addHandler = () => console.log('clicked add');
   const trains = [
     {
       avatar: img,
@@ -56,23 +58,25 @@ export default function Clients() {
           </button>
         </div>
         <ul className={styles.trains_wrapper}>
-          {trains
-            // .filter(el => {
-            //   console.log(el.title);
-            //   console.log(query);
-            //   el.title.includes(query);
-            // })
-            .map(train => (
-              <ClientPreview
-                id={train.id}
-                avatar={train.avatar}
-                title={train.title}
-                trainText={train.trainText}
-                date={train.date}
-              />
-            ))}
+          {trains &&
+            trains
+              // .filter(el => {
+              //   console.log(el.title);
+              //   console.log(query);
+              //   el.title.includes(query);
+              // })
+              .map(train => (
+                <ClientPreview
+                  id={train.id}
+                  avatar={train.avatar}
+                  title={train.title}
+                  trainText={train.trainText}
+                  date={train.date}
+                />
+              ))}
         </ul>
       </div>
+      <Add onClick={addHandler} />
     </>
   );
 }
