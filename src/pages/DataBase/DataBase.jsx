@@ -6,10 +6,17 @@ import FilterInput from '../../components/UI/FilterInput';
 import Select from '../../components/UI/Select/Select';
 import base from './base.json';
 import BasePreview from '../../components/BasePreview/BasePreview';
+import Add from '../../components/Add/Add';
+import MyModal from '../../components/UI/MyModal/MyModal';
+import Mybutton from '../../components/UI/button/MyButton';
 import renderIcon from './renderIcon';
 
 const DataBase = () => {
   const [trains, setTrains] = useState(base);
+  const [modal, setModal] = useState(false);
+  const [newTrain, setNewTrain] = useState('');
+  const [newSelectedType, setnewSelectedType] = useState('');
+  const addHandler = () => setModal(true);
 
   const filterTrains = train => {};
 
@@ -51,6 +58,37 @@ const DataBase = () => {
                 />
               ))}
         </ul>
+        <MyModal
+          visible={modal}
+          setVisible={setModal}
+          title="Добавить упражнение"
+        >
+          <FilterInput
+            placeholder="Введите название тренировки"
+            classname={styles.modal_input}
+          />
+          <Select
+            options={[
+              'плечи',
+              'трицепс',
+              'трапеция',
+              'бицепс',
+              'грудь',
+              'пресс',
+              'спина',
+              'ягодицы',
+              'ноги'
+            ]}
+            defaultValue="Группа мышц"
+            onChange={e => console.log(e)}
+            classname={styles.modal_select}
+          />
+          <Mybutton type="submit" onClick={e => console.log(e)}>
+            Добавить
+          </Mybutton>
+        </MyModal>
+
+        <Add onClick={addHandler} />
       </div>
     </>
   );

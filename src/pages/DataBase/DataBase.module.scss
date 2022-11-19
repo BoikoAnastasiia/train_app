@@ -3,13 +3,56 @@
 .base_wrapper {
   width: 90%;
   margin: 37px auto;
-  & input[type='text'] {
-    margin-right: 14px;
-  }
 }
 
 .buttons_wrapper {
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+  & input {
+    margin-right: 14px;
+  }
+}
+
+.modal_input {
+  display: block;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: $input-color;
+  color: $text-color;
+  border: 1px solid transparent;
+  flex-grow: 1;
+
+  &::placeholder {
+    color: $text-color;
+    font-weight: 300;
+    font-family: Roboto;
+  }
+
+  &:focus {
+    background-color: $input-accent-color;
+    outline: 2px solid $secondary-color;
+  }
+}
+
+.modal_select {
+  display: block;
+  width: 90%;
+  margin: 0 auto 30px auto;
+  border-radius: 12px;
+  background-color: $input-color;
+  border: none;
+  padding: 8px 9px;
+  text-transform: capitalize;
+  color: $text-color;
+  font-weight: 300;
+  font-family: Roboto;
+
+  & + button {
+    margin: auto;
+    display: block;
+  }
 }
