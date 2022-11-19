@@ -13,11 +13,19 @@ import renderIcon from './renderIcon';
 
 const DataBase = () => {
   const [trains, setTrains] = useState(base);
+  const [filter, SetFilter] = useState('');
   const [modal, setModal] = useState(false);
   const [newTrain, setNewTrain] = useState('');
   const [newSelectedType, setnewSelectedType] = useState('');
   const addHandler = () => setModal(true);
+  const handleFilterChange = event => SetFilter(event.target.value);
 
+  const handleModalSelect = event => {
+    setnewSelectedType(event.target.value);
+  };
+  const handleModalChange = event => {
+    setNewTrain(event.target.value);
+  };
   const filterTrains = train => {};
 
   return (
@@ -25,7 +33,11 @@ const DataBase = () => {
       <Navbar />
       <div className={styles.base_wrapper}>
         <div className={styles.buttons_wrapper}>
-          <FilterInput placeholder="Введите название тренировки" />
+          <FilterInput
+            placeholder="Введите название тренировки"
+            onChange={handleFilterChange}
+            value={filter}
+          />
           <Select
             options={[
               'плечи',
@@ -66,6 +78,7 @@ const DataBase = () => {
           <FilterInput
             placeholder="Введите название тренировки"
             classname={styles.modal_input}
+            onChange={handleModalChange}
           />
           <Select
             options={[
@@ -80,7 +93,7 @@ const DataBase = () => {
               'ноги'
             ]}
             defaultValue="Группа мышц"
-            onChange={e => console.log(e)}
+            onChange={handleModalSelect}
             classname={styles.modal_select}
           />
           <Mybutton type="submit" onClick={e => console.log(e)}>

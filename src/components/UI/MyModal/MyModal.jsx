@@ -8,7 +8,7 @@ const MyModal = ({ children, visible, setVisible, title }) => {
   }
 
   return (
-    <div className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
+    <form className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
       <div className={styles.myModalContent} onClick={e => e.stopPropagation()}>
         <span onClick={() => setVisible(false)} className={styles.close}>
           &#10006;
@@ -16,7 +16,7 @@ const MyModal = ({ children, visible, setVisible, title }) => {
         <h3 className={styles.title}>{title}</h3>
         {children}
       </div>
-    </div>
+    </form>
   );
 };
 
