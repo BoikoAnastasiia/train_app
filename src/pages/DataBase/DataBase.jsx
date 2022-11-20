@@ -12,13 +12,24 @@ import Mybutton from '../../components/UI/button/MyButton';
 import renderIcon from './renderIcon';
 
 const DataBase = () => {
+  const muscleArray = [
+    'плечи',
+    'трицепс',
+    'трапеция',
+    'бицепс',
+    'грудь',
+    'пресс',
+    'спина',
+    'ягодицы',
+    'ноги'
+  ];
   const [trains, setTrains] = useState(base);
-  const [filter, SetFilter] = useState('');
+  const [filter, setFilter] = useState('');
   const [modal, setModal] = useState(false);
   const [newTrain, setNewTrain] = useState('');
-  const [newSelectedType, setnewSelectedType] = useState('');
+  const [newSelectedType, setnewSelectedType] = useState('Группа Мышц');
   const addHandler = () => setModal(true);
-  const handleFilterChange = event => SetFilter(event.target.value);
+  const handleFilterChange = event => setFilter(event.target.value);
 
   const handleModalSelect = event => {
     setnewSelectedType(event.target.value);
@@ -26,6 +37,22 @@ const DataBase = () => {
   const handleModalChange = event => {
     setNewTrain(event.target.value);
   };
+
+  const submitModal = event => {
+    event.preventDefault();
+
+    const newTrainFromModal = {
+      name: newTrain,
+      muscles: [newSelectedType]
+    };
+
+    setTrains(prev => [newTrainFromModal, ...prev]);
+
+    setNewTrain('');
+    setnewSelectedType('Группа мышц');
+    setModal(false);
+  };
+
   const filterTrains = train => {};
 
   return (
@@ -39,17 +66,7 @@ const DataBase = () => {
             value={filter}
           />
           <Select
-            options={[
-              'плечи',
-              'трицепс',
-              'трапеция',
-              'бицепс',
-              'грудь',
-              'пресс',
-              'спина',
-              'ягодицы',
-              'ноги'
-            ]}
+            options={muscleArray}
             defaultValue="Все"
             onChange={e => console.log(e)}
           />
@@ -78,25 +95,17 @@ const DataBase = () => {
           <FilterInput
             placeholder="Введите название тренировки"
             classname={styles.modal_input}
-            onChange={handleModalChange}
+            handleChange={handleModalChange}
+            value={newTrain}
           />
           <Select
-            options={[
-              'плечи',
-              'трицепс',
-              'трапеция',
-              'бицепс',
-              'грудь',
-              'пресс',
-              'спина',
-              'ягодицы',
-              'ноги'
-            ]}
+            options={muscleArray}
             defaultValue="Группа мышц"
             onChange={handleModalSelect}
             classname={styles.modal_select}
+            value={newSelectedType}
           />
-          <Mybutton type="submit" onClick={e => console.log(e)}>
+          <Mybutton type="submit" onClick={submitModal}>
             Добавить
           </Mybutton>
         </MyModal>

@@ -5,7 +5,7 @@ const Select = ({ options, defaultValue, value, onChange, classname }) => {
     <select
       className={classname || styles.select}
       value={value}
-      onChange={event => onChange(event.target.value)}
+      onChange={onChange}
     >
       <option className={styles.option} value="" key={value + Math.random()}>
         {defaultValue}
