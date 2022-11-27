@@ -55,12 +55,11 @@ const DataBase = () => {
   };
 
   const filterTrains = (trains) =>
-    trains.filter((train) => {
-      selectedTrain == 'Все'
-        ? train.name
-        : train.muscles.includes(selectedTrain);
-    });
-  const selectTrainHandler = (event) => setSelectedTrain(event.target.value);
+    trains.filter((train) => train.muscles.includes(selectedTrain));
+  const selectTrainHandler = (event) => {
+    console.log(event.target.value, selectedTrain);
+    setSelectedTrain(event.target.value);
+  };
 
   return (
     <>
@@ -81,7 +80,7 @@ const DataBase = () => {
         </div>
         <ul className={styles.workouts_wrapper}>
           {trains &&
-            filterTrains(trains)
+            (selectedTrain === 'Все' ? trains : filterTrains(trains))
               .sort((a, b) => {
                 if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
                 if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
