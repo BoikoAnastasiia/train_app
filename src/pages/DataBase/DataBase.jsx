@@ -13,6 +13,7 @@ import renderIcon from './renderIcon';
 
 const DataBase = () => {
   const muscleArray = [
+    'Все',
     'плечи',
     'трицепс',
     'трапеция',
@@ -74,8 +75,8 @@ const DataBase = () => {
           <Select
             value={selectedTrain}
             options={muscleArray}
-            defaultValue="Все"
             onChange={selectTrainHandler}
+            defaultValue={muscleArray[0]}
           />
         </div>
         <ul className={styles.workouts_wrapper}>

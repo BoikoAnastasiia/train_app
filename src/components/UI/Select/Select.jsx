@@ -7,9 +7,6 @@ const Select = ({ options, defaultValue, value, onChange, classname }) => {
       value={value}
       onChange={onChange}
     >
-      <option className={styles.option} value="" key={value + Math.random()}>
-        {defaultValue}
-      </option>
       {options.map((option) => (
         <option
           className={styles.option}
