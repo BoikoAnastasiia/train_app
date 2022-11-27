@@ -27,18 +27,19 @@ const DataBase = () => {
   const [filter, setFilter] = useState('');
   const [modal, setModal] = useState(false);
   const [newTrain, setNewTrain] = useState('');
+  const [selectedTrain, setSelectedTrain] = useState('Все');
   const [newSelectedType, setnewSelectedType] = useState('Группа Мышц');
   const addHandler = () => setModal(true);
-  const handleFilterChange = event => setFilter(event.target.value);
+  const handleFilterChange = (event) => setFilter(event.target.value);
 
-  const handleModalSelect = event => {
+  const handleModalSelect = (event) => {
     setnewSelectedType(event.target.value);
   };
-  const handleModalChange = event => {
+  const handleModalChange = (event) => {
     setNewTrain(event.target.value);
   };
 
-  const submitModal = event => {
+  const submitModal = (event) => {
     event.preventDefault();
 
     const newTrainFromModal = {
@@ -46,14 +47,20 @@ const DataBase = () => {
       muscles: [newSelectedType]
     };
 
-    setTrains(prev => [newTrainFromModal, ...prev]);
+    setTrains((prev) => [newTrainFromModal, ...prev]);
 
     setNewTrain('');
     setnewSelectedType('Группа мышц');
     setModal(false);
   };
 
-  const filterTrains = train => {};
+  const filterTrains = (trains) =>
+    trains.filter((train) => {
+      selectedTrain == 'Все'
+        ? train.name
+        : train.muscles.includes(selectedTrain);
+    });
+  const selectTrainHandler = (event) => setSelectedTrain(event.target.value);
 
   return (
     <>
@@ -66,20 +73,21 @@ const DataBase = () => {
             value={filter}
           />
           <Select
+            value={selectedTrain}
             options={muscleArray}
             defaultValue="Все"
-            onChange={e => console.log(e)}
+            onChange={selectTrainHandler}
           />
         </div>
         <ul className={styles.workouts_wrapper}>
           {trains &&
-            trains
+            filterTrains(trains)
               .sort((a, b) => {
                 if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
                 if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
                 return 0;
               })
-              .map(train => (
+              .map((train) => (
                 <BasePreview
                   id={train.name + Math.random() + Date.now()}
                   icon={renderIcon(train.muscles)}

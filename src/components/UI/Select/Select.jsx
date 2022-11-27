@@ -10,7 +10,7 @@ const Select = ({ options, defaultValue, value, onChange, classname }) => {
       <option className={styles.option} value="" key={value + Math.random()}>
         {defaultValue}
       </option>
-      {options.map(option => (
+      {options.map((option) => (
         <option
           className={styles.option}
           key={option + Math.random()}
