@@ -10,9 +10,9 @@ import img3 from '../../images/avatars/cat_4.svg';
 import MyModal from '../../components/UI/MyModal/MyModal';
 
 export default function Clients() {
-  const handleQuery = e => setQuery(e.target.value);
+  const handleQuery = (e) => setQuery(e.target.value);
   const [modal, setModal] = useState(false);
-  const handleBlur = e => setQuery('');
+  const handleBlur = (e) => setQuery('');
   const [query, setQuery] = useState('');
   const addHandler = () => setModal(true);
   const trains = [
@@ -65,11 +65,11 @@ export default function Clients() {
               // .filter(el => {
               //   console.log(el.title);
               //   console.log(query);
-              //   el.title.includes(query);
+              //   el.title.in8cludes(query);
               // })
-              .map(train => (
+              .map((train) => (
                 <ClientPreview
-                  id={train.id}
+                  key={train.id}
                   avatar={train.avatar}
                   title={train.title}
                   trainText={train.trainText}

@@ -89,7 +89,7 @@ const DataBase = () => {
               })
               .map((train) => (
                 <BasePreview
-                  id={train.name + Math.random() + Date.now()}
+                  key={train.name + Math.random() + Date.now()}
                   icon={renderIcon(train.muscles)}
                   title={train.name}
                 />
@@ -125,3 +125,5 @@ const DataBase = () => {
 };
 
 export default DataBase;
+
+//TODO notification when new train is added
