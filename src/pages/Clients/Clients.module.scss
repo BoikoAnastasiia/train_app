@@ -51,4 +51,8 @@
     background-color: $input-accent-color;
     outline: 2px solid $secondary-color;
   }
+  & + button {
+    display: block;
+    margin: 20px auto;
+  }
 }
