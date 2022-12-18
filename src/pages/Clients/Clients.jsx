@@ -47,7 +47,6 @@ export default function Clients() {
   const filteredClients = clients.filter((client) =>
     client.title.toLowerCase().includes(query)
   );
-  console.log(filteredClients);
   return (
     <>
       <Navbar />
