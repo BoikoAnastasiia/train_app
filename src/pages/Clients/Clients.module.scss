@@ -28,3 +28,27 @@
 .trains_wrapper {
   margin: 40px 0;
 }
+
+.modal_input {
+  display: block;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: $input-color;
+  color: $text-color;
+  border: 1px solid transparent;
+  flex-grow: 1;
+
+  &::placeholder {
+    color: $text-color;
+    font-weight: 300;
+    font-family: Roboto;
+  }
+
+  &:focus {
+    background-color: $input-accent-color;
+    outline: 2px solid $secondary-color;
+  }
+}

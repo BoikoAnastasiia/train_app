@@ -8,13 +8,33 @@ import img from '../../images/avatars/cat_8.svg';
 import img2 from '../../images/avatars/cat_1.svg';
 import img3 from '../../images/avatars/cat_4.svg';
 import MyModal from '../../components/UI/MyModal/MyModal';
+import Mybutton from '../../components/UI/button/MyButton';
 
 export default function Clients() {
   const [modal, setModal] = useState(false);
   const handleBlur = (e) => setQuery('');
   const [query, setQuery] = useState('');
-
+  const [newClient, setNewClient] = useState('');
   const addHandler = () => setModal(true);
+  const handleModalChange = (event) => {
+    setNewClient(event.target.value);
+  };
+
+  const submitModal = (event) => {
+    event.preventDefault();
+
+    const newClientFromModal = {
+      avatar: img,
+      title: newClient,
+      id: Math.random() + Date.now(),
+      date: new Date(Date.now()).toDateString(),
+      trainText: '',
+    };
+
+    setClients((prev) => [newClientFromModal, ...prev]);
+    setNewClient('');
+    setModal(false);
+  };
 
   const initialClients = [
     {
@@ -81,7 +101,17 @@ export default function Clients() {
         visible={modal}
         setVisible={setModal}
         title="Добавить подопечного"
-      ></MyModal>
+      >
+        <FilterInput
+          placeholder="Имя нового подопечного"
+          classname={styles.modal_input}
+          handleChange={handleModalChange}
+          value={newClient}
+        />
+        <Mybutton type="submit" onClick={submitModal}>
+          Добавить
+        </Mybutton>
+      </MyModal>
       <Add onClick={addHandler} />
     </>
   );
