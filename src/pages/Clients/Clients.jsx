@@ -43,7 +43,7 @@ export default function Clients() {
       id: Math.random() + Date.now(),
       trainText:
         'Болгарские выпады 10 1 6*2 10 4 тяга в кроссовере бирюзовая 45 12 4 Ягодичный мостик на одной ноге 12 4 сгибание ног в тренажере и еще че тоjhvmjvvjbkbcksahbwflekelcvfewve',
-      date: new Date('October 13, 2023 11:13').toDateString(),
+      date: 'Fri Oct 13 2023',
     },
     {
       avatar: img2,
@@ -51,7 +51,7 @@ export default function Clients() {
       id: Math.random() + Date.now(),
       trainText:
         'тяга в кроссовере бирюзовая 45 12 4 Ягодичный мостик на одной ноге 12 4 сгибание ног в тренажёре 20 12 4 разведение ног в тренажёре 45 15 4 наружная ротация лёжа на боку 16 4 тяга верхнего блока широким хватом 15 12 1 25 12 4 у-подьем рук 10 4 планка упор лёжа динамическая',
-      date: new Date('October 14, 2023 11:13').toDateString(),
+      date: 'Sat Oct 14 2023',
     },
     {
       avatar: img3,
@@ -59,7 +59,7 @@ export default function Clients() {
       id: Math.random() + Date.now(),
       trainText:
         'Ягодичный мостик на одной ноге 12 4 сгибание ног в тренажёре 20 12 4 разведение ног в тренажёре 45 15 4 наружная ротация лёжа на боку 16 4 тяга верхнего блока широким хватом 15 12 1 25 12 4 у-подьем рук 10 4 планка упор лёжа динамическая тяга в кроссовере бирюзовая 45 12 4 ',
-      date: new Date('September 14, 2023 11:13').toDateString(),
+      date: 'Thu Sep 14 2023',
     },
   ];
   const [clients, setClients] = useState(initialClients);
